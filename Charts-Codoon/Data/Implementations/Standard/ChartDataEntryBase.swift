@@ -22,6 +22,16 @@ open class ChartDataEntryBase: NSObject
     /// optional icon image
     @objc open var icon: NSUIImage?
     
+    @objc open var showBubble = true
+    
+    @objc open var showCircle = true
+    
+    @objc open var unitString: String = ""
+    
+    @objc open var circleHoleColor = UIColor.init(red: 0/255.0, green: 201/255.0, blue: 120/255.0, alpha: 1)
+    
+    @objc open var circleColor = UIColor.white
+    
     public override required init()
     {
         super.init()
