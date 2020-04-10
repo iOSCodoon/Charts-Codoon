@@ -76,6 +76,12 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
     
     open var circleColors = [NSUIColor]()
     
+    //the Color is used for the Fill the bubble on the top of the circle
+    @objc open var bubbleFillColor: UIColor?
+    
+    //the Color is used for the stroke the bubble on the top of the circle
+    @objc open var bubbleStrokeColor: UIColor?
+    
     /// - Returns: The color at the given index of the DataSet's circle-color array.
     /// Performs a IndexOutOfBounds check by modulus.
     open func getCircleColor(atIndex index: Int) -> NSUIColor?
@@ -167,6 +173,8 @@ open class LineChartDataSet: LineRadarChartDataSet, ILineChartDataSet
         copy.drawCirclesEnabled = drawCirclesEnabled
         copy.drawCircleHoleEnabled = drawCircleHoleEnabled
         copy.mode = mode
+        copy.bubbleFillColor = bubbleFillColor
+        copy.bubbleStrokeColor = bubbleStrokeColor
         copy._fillFormatter = _fillFormatter
         return copy
     }
