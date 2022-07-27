@@ -528,6 +528,12 @@ extension ChartDataSet: RandomAccessCollection {
 
 // MARK: RangeReplaceableCollection
 extension ChartDataSet: RangeReplaceableCollection {
+    
+    public func replaceSubrange<C, R>(_ subrange: R, with newElements: C) where C : Collection, ChartDataEntry == C.Element,  R : RangeExpression, Index == R.Bound {
+        entries.replaceSubrange(subrange, with: newElements)
+        notifyDataSetChanged()
+    }
+    
     public func append(_ newElement: Element) {
         calcMinMax(entry: newElement)
         entries.append(newElement)
